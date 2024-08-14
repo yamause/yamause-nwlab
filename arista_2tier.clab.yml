@@ -1,0 +1,73 @@
+name: arista_2tier
+prefix: null
+mgmt: {}
+settings: null
+topology:
+  kinds:
+    ceos:
+      image: ceos:4.31.3M  # Change to the ceos version you use.
+  nodes:
+    node1-1:
+      kind: ceos
+      group: tier-1
+      startup-config: ./startup-config/node1-1.cfg
+    node1-2:
+      kind: ceos
+      group: tier-1
+      startup-config: ./startup-config/node1-2.cfg
+    node1-3:
+      kind: ceos
+      group: tier-1
+      startup-config: ./startup-config/node1-3.cfg
+    node2-1:
+      kind: ceos
+      group: tier-2
+      startup-config: ./startup-config/node2-1.cfg
+    node2-2:
+      kind: ceos
+      group: tier-2
+      startup-config: ./startup-config/node2-2.cfg
+    client1:
+      kind: ceos
+      group: client
+      startup-config: ./startup-config/client1.cfg
+    client2:
+      kind: ceos
+      group: client
+      startup-config: ./startup-config/client2.cfg
+  links:
+  - endpoints:
+    - node1-1:eth1
+    - node2-1:eth1
+    deploymentstate: 0
+  - endpoints:
+    - node1-1:eth2
+    - node2-2:eth1
+    deploymentstate: 0
+  - endpoints:
+    - node1-2:eth1
+    - node2-1:eth2
+    deploymentstate: 0
+  - endpoints:
+    - node1-2:eth2
+    - node2-2:eth2
+    deploymentstate: 0
+  - endpoints:
+    - node1-3:eth1
+    - node2-1:eth3
+    deploymentstate: 0
+  - endpoints:
+    - node1-3:eth2
+    - node2-2:eth3
+    deploymentstate: 0
+  - endpoints:
+    - client1:eth1
+    - node1-1:eth3
+  - endpoints:
+    - client2:eth1
+    - node1-2:eth3
+  - endpoints:
+    - client2:eth2
+    - node1-3:eth3
+    deploymentstate: 0
+debug: false

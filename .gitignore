@@ -1,0 +1,12 @@
+*.bak
+*.orig
+.*.swp
+.DS_Store
+thumbs.db
+.vscode
+.envrc
+.editorconfig
+.env
+
+# Containerlab Files
+clab-arista_2tier
