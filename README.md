@@ -41,7 +41,7 @@ redistribute connected を利用し再配送を行いますが経路情報を最
 #### BGP Overlay peer
 
 EVPN コントロールプレーンで各 NLRI の伝搬を行うために利用されます。Loopback0 をソースインタフェースとし、各ノードを接続します。
-設定を簡略化するためピアリングには dynamic neighbor を用います。
+設定を簡略化するためピアリンクには dynamic neighbor を用います。
 
 #### VXLAN Service interface
 
