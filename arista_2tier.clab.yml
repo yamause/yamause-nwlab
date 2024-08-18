@@ -6,6 +6,8 @@ topology:
   kinds:
     ceos:
       image: ceos:4.31.3M  # Change to the ceos version you use.
+      env:
+        CLAB_MGMT_VRF: Mgmt
   nodes:
     node1-1:
       kind: ceos
