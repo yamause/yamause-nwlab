@@ -29,13 +29,13 @@ node2-1#
 
 #### AS number
 
-Tier 2 Spine は AS65000 を利用し、Tier 1 Leaf は 65001 から降順に割り当てます。  
+Tier 2 Spine は AS65000 を利用し、Tier 1 Leaf は 65001 から昇順に割り当てます。  
 異なる Tier 間の接続は eBGP によって実装されます。
 
 #### BGP Underlay peer
 
 EVPN peer および、VXLANトンネルの確立の下準備として、アドレス到達性を確保するために利用される Underlay peer は IPv6 link-local address を利用します。  
-[RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598) で定義されている方法を用いて、 IPv6 アドレスピアから IPv4 アドレスファミリを伝搬します。
+[RFC 8950](https://datatracker.ietf.org/doc/html/rfc8950) で定義されている方法を用いて、 IPv6 アドレスピアから IPv4 アドレスファミリを伝搬します。
 redistribute connected を利用し再配送を行いますが経路情報を最小限に抑えるため、再配送するアドレスは Route-map で Loopback インタフェースのアドレスに制限します。
 
 #### BGP Overlay peer
